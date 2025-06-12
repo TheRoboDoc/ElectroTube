@@ -1,0 +1,16 @@
+{
+  "name": "electrotube",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "RoboDoc <theonlyrobodoc@gmail.com>",
+  "homepage": "https://github.com/TheRoboDoc",
+  "license": "MIT",
+  "description": "Electron wrapper for Youtube Music",
+  "dependencies": {
+    "electron": "^36.4.0"
+  },
+  "keywords": []
+}
