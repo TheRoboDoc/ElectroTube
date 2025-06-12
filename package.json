@@ -4,15 +4,61 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "debug": "electron . --clear-store"
+    "debug": "electron . --clear-store",
+    "build:win": "electron-builder --win",
+    "build:linux": "electron-builder --linux"
   },
   "author": "RoboDoc <theonlyrobodoc@gmail.com>",
   "homepage": "https://github.com/TheRoboDoc",
   "license": "MIT",
   "description": "Electron wrapper for Youtube Music",
+  
+  "build": {
+    "appId": "com.robodoc.electrotube",
+    "productName": "ElectroTube",
+    "directories": {
+      "buildResources": "build"
+    },
+    "files": [
+      "**/*"
+    ],
+    "win": {
+      "target": {
+        "target": "nsis",
+        "arch": ["x64"]
+      },
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "ElectroTube"
+    },
+    "linux": {
+      "icon": "build",
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "AudioVideo",
+      "maintainer": "RoboDoc <theonlyrobodoc@gmail.com>",
+      "description": "Electron wrapper for YouTube Music",
+      "synopsis": "Stream YouTube Music in a desktop wrapper"
+    },
+    "mac": {
+      "target": []
+    }
+  },
+
   "dependencies": {
-    "electron": "^36.4.0",
     "electron-store": "^10.0.1"
   },
-  "keywords": []
+  "keywords": [],
+  "devDependencies": {
+    "electron": "^36.4.0",
+    "electron-builder": "^26.0.12"
+  }
 }
