@@ -1,4 +1,4 @@
-const { app, BrowserWindow, shell, session } = require('electron');
+const { app, BrowserWindow, nativeTheme, shell, session } = require('electron');
 const Store = require('electron-store').default;
 const path = require('path');
 
@@ -75,6 +75,8 @@ function CreateWindow()
 
         callback(false);
     });
+
+    nativeTheme.themeSource = 'dark';
 }
 
 app.whenReady().then(async () =>
