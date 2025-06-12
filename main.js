@@ -13,6 +13,7 @@ function CreateWindow()
 
     const win = new BrowserWindow
     ({
+        ...state.bounds,
         width: 800,
         height: 600,
         webPreferences:
