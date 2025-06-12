@@ -3,14 +3,16 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "debug": "electron . --clear-store"
   },
   "author": "RoboDoc <theonlyrobodoc@gmail.com>",
   "homepage": "https://github.com/TheRoboDoc",
   "license": "MIT",
   "description": "Electron wrapper for Youtube Music",
   "dependencies": {
-    "electron": "^36.4.0"
+    "electron": "^36.4.0",
+    "electron-store": "^10.0.1"
   },
   "keywords": []
 }
