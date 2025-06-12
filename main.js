@@ -1,5 +1,6 @@
 const { app, BrowserWindow, session } = require('electron')
 const Store = require('electron-store').default;
+const path = require('path');
 
 let store;
 
@@ -20,6 +21,8 @@ function CreateWindow()
         {
             nodeIntegration: false,
         },
+        title: "ElectroTube",
+        icon: path.join(__dirname, 'icon.png')
     });
 
     if (state.isMaximized)
