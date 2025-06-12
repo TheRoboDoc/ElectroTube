@@ -1,4 +1,4 @@
-const { app, BrowserWindow, session } = require('electron')
+const { app, BrowserWindow, shell, session } = require('electron');
 const Store = require('electron-store').default;
 const path = require('path');
 
@@ -32,6 +32,8 @@ function CreateWindow()
         win.maximize();
     }
 
+    win.setMenuBarVisibility(false);
+
     win.loadURL('https://music.youtube.com');
 
     win.on('close', () =>
@@ -41,6 +43,37 @@ function CreateWindow()
             bounds: win.getBounds(),
             isMaximized: win.isMaximized()
         });
+    });
+
+    win.webContents.setWindowOpenHandler(({ url }) =>
+    {
+        if 
+        (
+            url.startsWith('https://music.youtube.com') ||
+            url.startsWith('https://accounts.google.com') ||
+            url.startsWith('https://play.google.com') ||
+            url.startsWith('https://myaccount.google.com')
+        )
+        {
+            return { action: 'allow' }
+        }
+
+        if (url.startsWith('https://'))
+        {
+            shell.openExternal(url);
+        }
+
+        return { action: 'deny' };
+    });
+
+    session.defaultSession.setPermissionRequestHandler((_, permission, callback) =>
+    {
+        if (permission === 'media')
+        {
+            return callback(true);
+        }
+
+        callback(false);
     });
 }
 
