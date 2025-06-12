@@ -12,7 +12,6 @@
   "homepage": "https://github.com/TheRoboDoc",
   "license": "MIT",
   "description": "Electron wrapper for Youtube Music",
-  
   "build": {
     "appId": "com.robodoc.electrotube",
     "productName": "ElectroTube",
@@ -25,7 +24,9 @@
     "win": {
       "target": {
         "target": "nsis",
-        "arch": ["x64"]
+        "arch": [
+          "x64"
+        ]
       },
       "icon": "build/icon.ico"
     },
@@ -52,13 +53,17 @@
       "target": []
     }
   },
-
   "dependencies": {
-    "electron-store": "^10.0.1"
+    "electron-store": "^10.0.1",
+    "minimatch": "5.1.6"
   },
   "keywords": [],
   "devDependencies": {
     "electron": "^36.4.0",
     "electron-builder": "^26.0.12"
+  },
+  "overrides": {
+    "minimatch": "5.1.6",
+    "brace-expansion": "1.1.11"
   }
 }
