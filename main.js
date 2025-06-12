@@ -20,6 +20,8 @@ function CreateWindow()
         webPreferences:
         {
             nodeIntegration: false,
+            contextIsolation: true,
+            sandbox: true
         },
         title: "ElectroTube",
         icon: path.join(__dirname, 'icon.png')
